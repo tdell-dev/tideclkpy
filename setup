@@ -1,7 +1,0 @@
-#!/bin/bash
-
-rm -rf ./tideclk_venv
-python -m venv tideclk_venv
-source tideclk_venv/bin/activate 
-pip install wheel
-pip install ./tideclk

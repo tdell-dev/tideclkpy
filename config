@@ -4,3 +4,25 @@ echo "Installing tideclk dependencies"
 sudo apt install python3-venv
 sudo apt install python3-pip
 sudo apt install python3-tk
+sudo apt install unclutter
+
+echo "Setting default python to python3"
+sudo rm /usr/bin/python
+sudo ln -s /bin/python3 /usr/bin/python
+
+echo "Create /etc/tideclk_venv virtualenvironment"
+sudo python3 -m venv /etc/tideclk_venv
+
+echo "pip install dependencies"
+sudo /etc/tideclk_venv/bin/pip install wheel
+sudo /etc/tideclk_venv/bin/pip install ./tideclk
+
+echo "Create the service to run on boot"
+sudo cp ./service/tideclk.service /etc/systemd/system/
+
+echo "Reload the system daemon"
+sudo systemctl daemon-reload
+
+echo "Copy the lxde file"
+sudo mv /etc/xdg/lxsession/LXDE-pi/autostart /etc/xdg/lxsession/LXDE-pi/autostart.bak
+sudo cp lxde_change/autostart /etc/xdg/lxsession/LXDE-pi/autostart

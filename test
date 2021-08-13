@@ -1,4 +1,0 @@
-#!/bin/bash
-
-export DISPLAY="0.0"
-source tideclk_venv/bin/activate && tideclk
