@@ -5,6 +5,7 @@ sudo apt install python3-venv
 sudo apt install python3-pip
 sudo apt install python3-tk
 sudo apt install unclutter
+sudo apt install build-essential libsystemd-journal-dev libsystemd-daemon-dev libsystemd-dev
 
 echo "Setting default python to python3"
 sudo rm /usr/bin/python
@@ -16,6 +17,7 @@ sudo python3 -m venv /etc/tideclk_venv
 echo "pip install dependencies"
 sudo /etc/tideclk_venv/bin/pip install wheel
 sudo /etc/tideclk_venv/bin/pip install ./tideclk
+sudo /etc/tideclk_venv/bin/pip install systemd
 
 echo "Create the service to run on boot"
 sudo cp ./service/tideclk.service /etc/systemd/system/
@@ -26,3 +28,5 @@ sudo systemctl daemon-reload
 echo "Copy the lxde file"
 sudo mv /etc/xdg/lxsession/LXDE-pi/autostart /etc/xdg/lxsession/LXDE-pi/autostart.bak
 sudo cp lxde_change/autostart /etc/xdg/lxsession/LXDE-pi/autostart
+
+echo "Everything is ready. Please visit https://www.ncdc.noaa.gov/cdo-web/token to receive an authentication token and place it in a file named /etc/NCDC_auth"

@@ -7,7 +7,6 @@ Environment=DISPLAY=:0
 User=pi
 Group=pi
 Type=simple
-#Restart=always
 ExecStart=/etc/tideclk_venv/bin/tideclk
 
 [Install]
