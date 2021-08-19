@@ -5,7 +5,7 @@ sudo apt install python3-venv
 sudo apt install python3-pip
 sudo apt install python3-tk
 sudo apt install unclutter
-sudo apt install build-essential libsystemd-journal-dev libsystemd-daemon-dev libsystemd-dev
+sudo apt install build-essential libsystemd-dev
 
 echo "Setting default python to python3"
 sudo rm /usr/bin/python
@@ -16,8 +16,8 @@ sudo python3 -m venv /etc/tideclk_venv
 
 echo "pip install dependencies"
 sudo /etc/tideclk_venv/bin/pip install wheel
-sudo /etc/tideclk_venv/bin/pip install ./tideclk
 sudo /etc/tideclk_venv/bin/pip install systemd
+sudo /etc/tideclk_venv/bin/pip install ./tideclk
 
 echo "Create the service to run on boot"
 sudo cp ./service/tideclk.service /etc/systemd/system/

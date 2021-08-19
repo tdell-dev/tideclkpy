@@ -7,7 +7,7 @@ setup(name='tideclk',
       author_email='uibler@github.com',
       url='https://www.github.com/uiblr/tideclk',
       packages=['tideclk'],
-      install_requires=['requests'],
+      install_requires=['requests','numpy','matplotlib'],
       entry_points={
           'console_scripts': [
               'tideclk = tideclk.console:main',
