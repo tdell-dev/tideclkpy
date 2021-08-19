@@ -1,7 +1,6 @@
 echo "Create /etc/tideclk_venv virtualenvironment"
 sudo python3 -m venv /etc/tideclk_venv
 
-
 echo "pip install dependencies"
 sudo /etc/tideclk_venv/bin/pip install wheel
 sudo /etc/tideclk_venv/bin/pip install systemd
